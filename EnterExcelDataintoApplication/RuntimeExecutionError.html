@@ -1,0 +1,289 @@
+<!-- saved from url=(0016)http://localhost -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Runtime execution error</title>
+
+	<style>
+		body {
+			font-family: Segoe UI;
+			margin: 0;
+			border-top: 1px solid #d9d9d9;
+		}
+		img#warning {
+			float: left;
+			width: 28pt;
+		}
+		div#header {
+			min-height: 80pt;
+			margin: 16pt;
+			margin-top: 8pt;
+		}
+		p {
+			margin: 0pt;
+		}
+
+		div.action_info {
+			overflow: hidden;
+			border-top: 1px solid #d9d9d9;
+			width: 100%;
+			position:absolute;
+			bottom:0;
+			background-color: #f5f5f5;
+		}
+		p.action_info {
+			float: left;
+			margin: 8pt;
+			margin-left: 44pt;
+		}
+		
+		.btn {
+			cursor:pointer;
+    		display: inline-block;
+    		font-weight: 400;
+    		color: #242424;
+		    background-color: #e8e8e8;
+		    border-color: #c5c5c5;
+		    text-align: center;
+		    vertical-align: middle;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    border: 1px solid;
+			padding: 2pt;
+    
+		    line-height: 1.5;
+		    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+		.btn-primary {
+		    border-color: #0073ce;
+		}
+
+		.img-resize{
+			height: 75px;
+			width: 210px;
+			overflow: hidden;
+			border: 1px solid #c5c5c5;
+		}
+
+		.img-resize img{
+			max-width: 100%;
+			object-fit: cover;
+		}
+		
+		#problem-element-image-container {
+			align-items: center;
+			display: flex;
+		}
+
+		#action_info_text{
+			overflow: hidden;
+			position:absolute;
+			bottom:44pt;
+			left: 16pt;
+			color: #707070;
+			background-color: #FFF;
+		}
+
+		#buttons_master_container{
+			width: 80%;
+			float:right;
+			margin: 8pt;
+			margin-right: 12pt;
+		}
+
+
+		#cardImagesContainer{
+			clear:both;
+		}
+
+		#appImagesContainer{
+			display: flex;
+		}
+
+		div#buttons_container {
+			clear: both;
+		}
+		#buttons_container input {
+			float: right;
+			margin-left: 8pt;
+			width: 60pt;
+		}
+
+		div#arrow-container {
+			width: 48px;
+		}
+		
+		div.center-align {
+			position: relative;
+		}
+		
+		div.center-align img{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			left: 0;
+			right: 0;
+		}
+		
+
+		.modal-image {
+		  border-radius: 5px;
+		  cursor: pointer;
+		  transition: 0.3s;
+		}
+
+		.modal-image:hover {opacity: 0.7;}
+
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 1;
+		  padding-top: 100px;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  overflow: auto;
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0,0.9);
+		}
+		
+		.modal-content {
+		  margin: auto;
+		  display: block;
+		  max-width: 700px;
+		}
+
+		#caption {
+		  margin: auto;
+		  display: block;
+		  width: 80%;
+		  max-width: 700px;
+		  text-align: center;
+		  color: #ccc;
+		  padding: 10px 0;
+		  height: 150px;
+		}
+
+		.modal-content, #caption {
+		  animation-name: zoom;
+		  animation-duration: 0.6s;
+		}
+
+		@keyframes zoom {
+		  from {transform:scale(0)}
+		  to {transform:scale(1)}
+		}
+
+		.close {
+		  position: absolute;
+		  top: 15px;
+		  right: 35px;
+		  color: #f1f1f1;
+		  font-size: 40px;
+		  font-weight: bold;
+		  transition: 0.3s;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #bbb;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+
+		@media only screen and (max-width: 700px){
+		  .modal-content {
+		    width: 100%;
+		  }
+		}
+
+		#SkipIterationContainer {
+			/* display: none; */
+			
+		}				
+
+	</style>
+
+	<script type="text/javascript">
+		function Submit(actionValue) {
+			window.external.setResult(actionValue);
+			return true;
+		}
+        
+        function ShowModal(imageObj){
+			var modal = document.getElementById("myModal");
+			var modalImg = document.getElementById("img01");
+			var captionText = document.getElementById("caption");
+			modal.style.display = "block";
+			modalImg.src = imageObj.src;
+			captionText.innerHTML = imageObj.alt;
+		}
+			
+		window.onload = function() {			
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+				var modal = document.getElementById("myModal");
+				modal.style.display = "none";
+			}
+		}
+    </script>
+</head>
+
+<body>
+	<div id="header">
+		<img id="warning" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA+BJREFUeAHtm79u1DAcx3/OHRsLS0GiVREgwYBAQogBRpDQDYzwCHCFFyhi6VK1L1CoeAQ6MnSBsQwMsIDEwJ9WvQEY6ANwF+NvrhF27FycxIkTmp90F9tx7N/3E9+dHf+OqLOOQEfgKBNgzsUv7d0jzu8SpxtE/Jyb9tlXYvSWGHtFzxe33LQ5bcUdgEf752ky2RSib7l0UG+LvaFeb0jPFr7o5/KXuAHwePcqTei1uPMn8rtQ4ArGDqhHt2njzPsCVyuXlAdQt/jYfUcQygFIE8/oJbH+Kp2c/0grLIx9LnRc4QH9HF0iPn4qvlfuK204gFAcQKr4YJ02F58ojrrKDPfWiIfLSnOMfhELLoovxwOl3DITWNZTq/kQDw8AlgnAsnGao5CuyUV50vkB+BIfqwKEIFiLs0TsNx0/9uFfPl8q30fAt3hZ29LuQIi/LIq2xPD/Jp/Kk7YH0CTxeRRm1LUD0BbxD0dXiMbrYtY4ph5bpo3FTxn6RdUsa4t46Bh+/yx+Ki9Ekix/Imd/CbZJ/FT16eiAN8xKMTuFhhmWDqB14iPVq4pWCwjmjwAWNuHknTa3x2+wo0nOeHBqwMPwBRxmQfCgv/1jW3G+aMY4WRJrh6B33bSAMo8ArOqSCxuH4qEN4jmn+eh1CKKoZuU642QJHwesVHXTAWA9n1zSOhYPNyA8dkdOx2WljiYI0BRpU1vWAeBhhmxY2Dga9nKzlacjCMJ32ZLaxDkdANFN+ZpoVacUtCiDFalqqjZxTgfA+VnlGixp22pJ35PajACSYsuu55Pt1Zm38F0fAXU62IC+OgANuAleXehGgFf8Dei8GwENuAleXehGgFf8Dei8GwENuAleXfA2AhijUaxcTsdldR39ARCPwSA8eol0XYKT/fSTBXXlD58BLtTVX1o/3kZAmkN1l2cDwP58W83Cd10cY+pGI4IT2mqa7yLYKmE6AKIdpQ4iMyow7Av8uTO3jxfSFXQhHj0nfEekWcJ0AAhFkw1hKdhscGyV7QvEfkYbJFpIjapN1NUBRHF4IhRNNoSlVABB7sJp2rQ7REKTIcZQBwBPEIeH3VXZHEPAdlgl8wCT+GinWGgymHlvEBXbuDmaKj49pjAdQNsgFBAPibMBtAVCQfF2AJoOoYR4ewBNhVBSfD4ATYPgQHx+AE2B4Eh8MQC+ITgUXxyALwiOxZcDMBPCUQiXBwBY2oxxera6d8tAyCwHsidCWS3gfN0QHImH6+bFEM7kMfx3B3F4WHFVbqIP9OXg/0Jw1c0IkEXHf5tDsJUhJkeuap2ePqXaqeJvc9Y+dBU7Ah2B/5LAX/vC6lHCoAxXAAAAAElFTkSuQmCC"/>
+		<div style="width: 80%; float:left; margin-left: 12pt;">
+			<p>
+				Something went wrong with <strong>the Application</strong>.
+				<br>Activity <strong>Type Into 'Location:'</strong> (<strong>Type Into</strong>) failed:
+				<br><br><strong><i>Could not find the UI object corresponding to the provided selector.</i></strong>
+				<br><br>You can find the activity following this path:
+				<br><strong>Main > Use Browser Firefox: Food Submission > Use Excel File > Excel For Each Column > Type Into 'Location:'.</strong></br>
+			</p>
+
+			<div id="cardImagesContainer"><div class="img-resize"><img onclick="ShowModal(this);" class="modal-image"alt="" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="/></div><div id="problem-element-image-container"><p><strong>Problem with element: </strong></p></div><div id="appImagesContainer"><div class="img-resize center-align"><img onclick="ShowModal(this);" class="modal-image"alt="" src="data:image/png;base64, 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"/></div><div class="center-align" id="arrow-container" ><img height="34px;" alt="" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAC4AAAAiCAYAAAAge+tMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEcSURBVFhH7ZXPSwJRFIX7//+S2kSUi1BwYSWKLURJGSoJE1OS/DGj6ZRz4j7muXDzNJ9nEO4HDwYuDN/lnTNzhhNFxdmoOBsVZ6PibGjiSZKkT36giPc+RsgVa+h0B94WoIhPZhHua084vynhulBF8NrD73qdTv8HNePjabhZ4CpfOWiBTMopCzw8tnCRuzMLtF/eEcc/6XQ3nOLLVYxo/n2UM/gco1humBu4vC2jGbwhjBZm5sIpXq0H5sXMI3Fy4RSfhnMMR5OjnP7wa5N5Kywx2oVMMi55bj13Tb73FbZQxUVYcix5lmJKQfcVtlDEt4WlN1LCQ6CIy/fal7CFIi4/GV/ClkzK6QMVZ6PibFScjYqzUXE2JyoO/AHqaxyQglTMQAAAAABJRU5ErkJggg=="/></div><div class="img-resize center-align"><img onclick="ShowModal(this);" class="modal-image" src="data:image/png;base64, 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"/></div></div></div>	
+				
+		</div>
+	</div>
+
+	<div>
+		<div id="action_info_text">
+			<p class="action_info">
+			<span>Press <strong>Retry</strong> to re-execute the activity.</span>
+			<span>Press <strong>Skip</strong> to continue execution from the next activity.</span>
+			<span id="SkipIterationContainer">Press <strong>Skip Item</strong> to continue with the next item.</span>
+			<span>Press <strong>Stop</strong> to stop the execution of the process.</span>
+			</p>
+		</div>
+		<div class="action_info">
+			<div id="buttons_master_container">
+				<div id="buttons_container" >
+					<input type="submit" class="btn" name="Stop" value="Stop" onclick="Submit('Stop')" />
+					<div id="SkipIterationContainer"><input type="submit" class="btn" name="Skip Item" value="Skip Item" onclick="Submit('SkipIteration')" /></div>
+					<input type="submit" class="btn btn-primary" name="Skip" value="Skip" onclick="Submit('Skip')" />
+					<input type="submit" class="btn" name="Retry" value="Retry" onclick="Submit('Retry')" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="myModal" class="modal">
+			<!-- The Close Button -->
+			<span class="close">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="modal-content" id="img01">
+		<!-- Modal Caption (Image Text) -->
+		<div id="caption"></div>
+	</div>
+	
+</body>
+</html> 
